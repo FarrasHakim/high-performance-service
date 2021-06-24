@@ -38,7 +38,6 @@ def update_data(request):
     npm = json_data["npm"]
     nama = json_data["nama"]
     mhs_obj = Mahasiswa.objects.filter(npm=npm)
-    print(json.loads(request.body.decode('utf8')))
     if mhs_obj:
         return Response(
                 status=status.HTTP_400_BAD_REQUEST,
@@ -67,8 +66,6 @@ def retrieve_data(request, npm=None):
                     "error": "Data with npm " + npm + " doesn't exists",
                 },
             )
-    print(mhs_obj.get().npm)
-    print(mhs_obj.get().nama)
     data = {
             "status" : "OK",
             "npm" : mhs_obj.get().npm,

@@ -42,7 +42,12 @@ def read_data(request, id=None):
 
 @api_view(['GET'])
 def read_data_exist(request, id=None, trx_id=None):
-    return HttpResponse("Hello World Exist")
+    url = "http://localhost:8000/%s/" % id
+
+    r = requests.get(url = url)
+    data = r.json()
+    print(data)
+    return JsonResponse(data)
 
 
 
