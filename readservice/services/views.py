@@ -37,7 +37,6 @@ def read_data(request, id=None):
 
     r = requests.get(url = url)
     data = r.json()
-    print(data)
     return JsonResponse(data)
 
 @api_view(['GET'])
@@ -46,7 +45,6 @@ def read_data_exist(request, id=None, trx_id=None):
 
     r = requests.get(url = url)
     data = r.json()
-    print(data)
     return JsonResponse(data)
 
 
